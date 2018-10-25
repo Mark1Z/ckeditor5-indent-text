@@ -1,0 +1,34 @@
+{
+    "name": "ckeditor5-indent-text",
+    "version": "1.0.0",
+    "description": "Text indenting feature for CKEditor 5.",
+    "keywords": [
+        "ckeditor",
+        "ckeditor5",
+        "ckeditor 5",
+        "ckeditor5-feature",
+        "ckeditor5-plugin"
+    ],
+    "dependencies": {
+        "@ckeditor/ckeditor5-core": "^11.0.1",
+        "@ckeditor/ckeditor5-engine": "^11.0.0",
+        "@ckeditor/ckeditor5-ui": "^11.1.0",
+        "@ckeditor/ckeditor5-utils": "^11.0.0"
+    },
+    "engines": {
+        "node": ">=6.9.0",
+        "npm": ">=3.0.0"
+    },
+    "author": "Maksim Virchenko",
+    "license": "UNLICENSED",
+    "homepage": "https://github.com/Mark1Z/ckeditor5-intend-text",
+    "bugs": "https://github.com/Mark1Z/ckeditor5-intend-text/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mark1Z/ckeditor5-intend-text.git"
+    },
+    "files": [
+        "src",
+        "theme"
+    ]
+}
