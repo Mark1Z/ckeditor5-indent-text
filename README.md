@@ -1,6 +1,6 @@
-## CKEditor 5 text intend feature ##
+## CKEditor 5 text indent feature ##
 
-This package implements text indenting feature support for CKEditor 5.
+This package implements text indent feature support for CKEditor 5.
 
 #### Installation ####
 
@@ -13,14 +13,14 @@ npm install --save ckeditor5-indent-text
 ```js
 //...
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-import IntendTextPlugin from 'ckeditor5-intend-text/src/intend-text';
+import IndentTextPlugin from 'ckeditor5-indent-text/src/indent-text';
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
 
 ClassicEditor.builtinPlugins = [
     //...
-    IntendTextPlugin,
+    IndentTextPlugin,
     //...
 ];
 
@@ -29,16 +29,16 @@ ClassicEditor.defaultConfig = {
     toolbar: {
         items: [
             //...
-            'intendLeft',
-            'intendRight',
+            'indentLeft',
+            'indentRight',
             //...
         ]
     },
     //...
-    intendText: {
+    indentText: {
         options: {
-            intendLength: 40,
-            intendMeasure: 'px',
+            indentLength: 40,
+            indentMeasure: 'px',
         },
     },
     //...

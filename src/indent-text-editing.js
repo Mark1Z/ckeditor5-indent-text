@@ -1,30 +1,30 @@
 import Plugin from "@ckeditor/ckeditor5-core/src/plugin";
-import {IntendTextCommand} from "./intend-text-command";
+import {IndentTextCommand} from "./indent-text-command";
 import {upcastAttributeToAttribute} from "@ckeditor/ckeditor5-engine/src/conversion/upcast-converters";
-import {INTEND_TEXT_ATTRIBUTE, INTEND_TEXT_COMMAND, INTEND_TEXT_DEFAULT_MEASURE} from "./constants";
+import {INDENT_TEXT_ATTRIBUTE, INDENT_TEXT_COMMAND, INDENT_TEXT_DEFAULT_MEASURE} from "./constants";
 import {downcastAttributeToAttribute} from "@ckeditor/ckeditor5-engine/src/conversion/downcast-converters";
 
 /**
- * Intend text editing plugin
+ * Indent text editing plugin
  */
-export class IntendTextEditing extends Plugin {
+export class IndentTextEditing extends Plugin {
     /**
      * Initialize
      */
     init() {
         const editor = this.editor;
         const schema = editor.model.schema;
-        const options = editor.config.get('intendText.options');
-        const intendMeasure = (options && options.intendMeasure) ? options.intendMeasure : INTEND_TEXT_DEFAULT_MEASURE;
+        const options = editor.config.get('indentText.options');
+        const indentMeasure = (options && options.indentMeasure) ? options.indentMeasure : INDENT_TEXT_DEFAULT_MEASURE;
 
-        schema.extend('$block', {allowAttributes: INTEND_TEXT_ATTRIBUTE});
+        schema.extend('$block', {allowAttributes: INDENT_TEXT_ATTRIBUTE});
 
         editor.conversion.for('downcast').add(downcastAttributeToAttribute({
-            model: INTEND_TEXT_ATTRIBUTE,
+            model: INDENT_TEXT_ATTRIBUTE,
             view: modelAttributeValue => ({
                 key: 'style',
                 value: {
-                    'padding-left': `${modelAttributeValue}${intendMeasure}`,
+                    'padding-left': `${modelAttributeValue}${indentMeasure}`,
                 },
             })
         }));
@@ -35,13 +35,13 @@ export class IntendTextEditing extends Plugin {
                 value: /padding-left-[\S]+/
             },
             model: {
-                key: INTEND_TEXT_ATTRIBUTE,
+                key: INDENT_TEXT_ATTRIBUTE,
                 value: viewElement => {
                     return parseInt(viewElement.getStyle('padding-left'));
                 },
             },
         }));
 
-        editor.commands.add(INTEND_TEXT_COMMAND, new IntendTextCommand(editor));
+        editor.commands.add(INDENT_TEXT_COMMAND, new IndentTextCommand(editor));
     }
 }

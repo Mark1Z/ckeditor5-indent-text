@@ -1,11 +1,11 @@
 import Command from '@ckeditor/ckeditor5-core/src/command';
-import {INTEND_TEXT_ATTRIBUTE} from "./constants";
+import {INDENT_TEXT_ATTRIBUTE} from "./constants";
 import first from '@ckeditor/ckeditor5-utils/src/first';
 
 /**
- * Intend text command
+ * Indent text command
  */
-export class IntendTextCommand extends Command {
+export class IndentTextCommand extends Command {
     /**
      * @inheritDoc
      */
@@ -13,7 +13,7 @@ export class IntendTextCommand extends Command {
         const firstBlock = first(this.editor.model.document.selection.getSelectedBlocks());
 
         this.isEnabled = !!firstBlock;
-        this.value = (this.isEnabled && firstBlock.hasAttribute(INTEND_TEXT_ATTRIBUTE)) ? firstBlock.getAttribute(INTEND_TEXT_ATTRIBUTE) : 0;
+        this.value = (this.isEnabled && firstBlock.hasAttribute(INDENT_TEXT_ATTRIBUTE)) ? firstBlock.getAttribute(INDENT_TEXT_ATTRIBUTE) : 0;
     }
 
     /**
@@ -34,12 +34,12 @@ export class IntendTextCommand extends Command {
             const blocks = document.selection.getSelectedBlocks();
 
             for (const block of blocks) {
-                const newValue = (block.getAttribute(INTEND_TEXT_ATTRIBUTE) || 0) + value;
+                const newValue = (block.getAttribute(INDENT_TEXT_ATTRIBUTE) || 0) + value;
 
                 if (newValue > 0) {
-                    writer.setAttribute(INTEND_TEXT_ATTRIBUTE, newValue, block);
+                    writer.setAttribute(INDENT_TEXT_ATTRIBUTE, newValue, block);
                 } else {
-                    writer.removeAttribute(INTEND_TEXT_ATTRIBUTE, block);
+                    writer.removeAttribute(INDENT_TEXT_ATTRIBUTE, block);
                 }
             }
         });
