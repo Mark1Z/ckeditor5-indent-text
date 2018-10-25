@@ -1,6 +1,6 @@
 ## CKEditor 5 text intend feature ##
 
-This package implements text alignment support for CKEditor 5.
+This package implements text indenting feature1 support for CKEditor 5.
 
 #### Installation ####
 
