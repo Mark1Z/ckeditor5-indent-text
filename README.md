@@ -5,7 +5,7 @@ This package implements text alignment support for CKEditor 5.
 #### Installation ####
 
 ```bash
-npm install --save 
+npm install --save ckeditor5-indent-text
 ```
 
 #### Usage and available options #### 
