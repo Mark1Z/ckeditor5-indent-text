@@ -14,7 +14,7 @@ export class IndentTextUi extends Plugin {
     init() {
         const editor = this.editor;
         const options = editor.config.get('indentText.options');
-        const indentValue = (options && options.indentLength) ? options.indentLength : INDENT_TEXT_DEFAULT_VALUE;
+        const indentLength = (options && options.indentLength) ? options.indentLength : INDENT_TEXT_DEFAULT_VALUE;
 
         editor.ui.componentFactory.add('indentLeft', locale => {
             const view = new ButtonView(locale);
@@ -27,7 +27,7 @@ export class IndentTextUi extends Plugin {
             });
 
             view.on('execute', () => {
-                editor.execute(INDENT_TEXT_COMMAND, {value: -indentValue});
+                editor.execute(INDENT_TEXT_COMMAND, {value: -indentLength});
             });
 
             return view;
@@ -44,7 +44,7 @@ export class IndentTextUi extends Plugin {
             });
 
             view.on('execute', () => {
-                editor.execute(INDENT_TEXT_COMMAND, {value: indentValue});
+                editor.execute(INDENT_TEXT_COMMAND, {value: indentLength});
             });
 
             return view;
