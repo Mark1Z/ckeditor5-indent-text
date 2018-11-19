@@ -32,12 +32,14 @@ export class IndentTextEditing extends Plugin {
         editor.conversion.for('upcast').add(upcastAttributeToAttribute({
             view: {
                 key: 'style',
-                value: /padding-left-[\S]+/
+                value: /padding-left-[\S]+/,
             },
             model: {
                 key: INDENT_TEXT_ATTRIBUTE,
                 value: viewElement => {
-                    return parseInt(viewElement.getStyle('padding-left'));
+                    if (viewElement.getStyle('padding-left')) {
+                        return parseInt(viewElement.getStyle('padding-left'));
+                    }
                 },
             },
         }));
