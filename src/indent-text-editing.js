@@ -1,8 +1,6 @@
 import Plugin from "@ckeditor/ckeditor5-core/src/plugin";
 import {IndentTextCommand} from "./indent-text-command";
-import {upcastAttributeToAttribute} from "@ckeditor/ckeditor5-engine/src/conversion/upcast-converters";
 import {INDENT_TEXT_ATTRIBUTE, INDENT_TEXT_COMMAND, INDENT_TEXT_DEFAULT_MEASURE} from "./constants";
-import {downcastAttributeToAttribute} from "@ckeditor/ckeditor5-engine/src/conversion/downcast-converters";
 
 /**
  * Indent text editing plugin
@@ -19,7 +17,7 @@ export class IndentTextEditing extends Plugin {
 
         schema.extend('$block', {allowAttributes: INDENT_TEXT_ATTRIBUTE});
 
-        editor.conversion.for('downcast').add(downcastAttributeToAttribute({
+        editor.conversion.for('downcast').attributeToAttribute({
             model: INDENT_TEXT_ATTRIBUTE,
             view: modelAttributeValue => ({
                 key: 'style',
@@ -27,9 +25,9 @@ export class IndentTextEditing extends Plugin {
                     'padding-left': `${modelAttributeValue}${indentMeasure}`,
                 },
             })
-        }));
+        });
 
-        editor.conversion.for('upcast').add(upcastAttributeToAttribute({
+        editor.conversion.for('upcast').attributeToAttribute({
             view: {
                 key: 'style',
                 value: /padding-left-[\S]+/,
@@ -42,7 +40,7 @@ export class IndentTextEditing extends Plugin {
                     }
                 },
             },
-        }));
+        });
 
         editor.commands.add(INDENT_TEXT_COMMAND, new IndentTextCommand(editor));
     }
