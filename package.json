@@ -1,6 +1,6 @@
 {
     "name": "ckeditor5-indent-text",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "Text indenting feature for CKEditor 5.",
     "keywords": [
         "ckeditor",
