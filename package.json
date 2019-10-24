@@ -1,6 +1,6 @@
 {
     "name": "ckeditor5-indent-text",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Text indenting feature for CKEditor 5.",
     "keywords": [
         "ckeditor",
@@ -10,10 +10,10 @@
         "ckeditor5-plugin"
     ],
     "dependencies": {
-        "@ckeditor/ckeditor5-core": "^12.3.0",
-        "@ckeditor/ckeditor5-engine": "^14.0.0",
-        "@ckeditor/ckeditor5-ui": "^14.0.0",
-        "@ckeditor/ckeditor5-utils": "^14.0.0"
+        "@ckeditor/ckeditor5-core": "^15.0.0",
+        "@ckeditor/ckeditor5-engine": "^15.0.0",
+        "@ckeditor/ckeditor5-ui": "^15.0.0",
+        "@ckeditor/ckeditor5-utils": "^15.0.0"
     },
     "engines": {
         "node": ">=6.9.0",
